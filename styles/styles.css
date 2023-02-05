@@ -3,6 +3,97 @@
 
 /*These are for the button functionalities, this will be the 
 general style for the buttons on my website */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height:100vh; 
+    background: linear-gradient(rgb(105, 182, 255), rgb(255, 255, 255));
+}
+
+header {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    padding: 30px 100px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    z-index: 10000; 
+}
+
+footer {
+    background: rgb(29, 60, 71)  
+}
+
+#logo { 
+    color: white; 
+    font-weight: 700;
+    text-decoration: none; 
+    font-size: 2em;
+    text-transform: uppercase; 
+    letter-spacing: 2px;  
+    transition-duration: 0.4s; 
+}
+
+header ul {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+
+}
+
+header ul li {
+    list-style: none; 
+    margin-left: 20px; 
+}
+
+header ul li a {
+    text-decoration: none; 
+    padding: 6px 15px; 
+    color: white; 
+}
+
+header ul li a.items:hover, 
+header ul li a.active {
+    background: white; 
+    color: black;
+    border-radius: 10px;  
+    transition-duration: 0.5s; 
+}
+
+section {
+    position: relative; 
+    width: 100%;
+    height: 100vh; 
+    padding: 100px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+section img {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+    z-index:4;
+    pointer-events: none;
+    background-image: linear-gradient(to bottom, 
+        rgba(255,255,255,0), 
+        rgba(255,255,255,1) 90%);
+}
+
 .button {
     background-color: rgb(0, 87, 131);
     border: 2px black;
@@ -22,52 +113,103 @@ general style for the buttons on my website */
     background-color: rgb(164, 214, 255)
 }
 
-.body {
-    padding-top: 50px; 
-    font-family: Helvetica;
+#text {
+    position: absolute; 
+    color: white; 
+    white-space: nowrap; 
+    font-size: 7.5vw; 
+    font-size: 3em; 
+    z-index:10;
+    transform: translateY(-40px);
+
 }
 
-/* This is for the navigational bar on the top
-of my website */
-.navbar {
-    overflow: hidden; 
-    background-color: #333; 
-    position: fixed; 
-    padding-top: 10px; 
-    padding-bottom: 10px;
-    top: 0;
-    left: 0;
-    width: 100%;
-}
-
-.navbar a {
-    float: left; 
-    display: block; 
-    color: #f2f2f2; 
-    text-align: center;
-    padding: 14px 16px; 
+#btn {
     text-decoration: none;
+    display: inline-block; 
+    padding: 8px 30px; 
+    border-radius: 40px;
+    color: rgb(255, 255, 255); 
+    background:rgb(29, 60, 71);
+    opacity: 0.8;
+    font-size: 1em; 
+    z-index: 10;
+    transform: translateY(60px);
 }
 
-.navbar a:hover {
-    background: #ddd; 
+#btn:hover{
+    background: white; 
     color: black; 
+    opacity: 1;
+    transition-duration: 0.4s;
 }
 
-#navbar_title {
-    text-align: left;
-    padding: 60px;
+.sec {
+    position: relative;
+    padding: 100px; 
+    background: rgb(103, 147, 163) 
+}
+
+.sec h2 {
+    font-size: 3.5em;
+    margin-bottom: 10px; 
     color: white;
-    font-size: large;
 }
 
-/* Additional stylings here */
-
-body {
-    overflow-x: hidden; 
+.sec p {
+    color: white; 
+    font-size: 1.2em; 
 }
 
-#sections {
-    text-align: left; 
-    padding-left: 75px
+.fade-in {
+    opacity: 0; 
+    transition: opacity 250ms ease-in; 
+}
+
+.fade-in.appear {
+    opacity: 1; 
+}
+
+.more-stuff-grid {
+    background: white; 
+    padding: 4em 0; 
+    display: grid; 
+    grid-gap: 2em; 
+    align-items: center;
+    grid-template-columns: minmax(1em, 1fr) repeat(2, minmax(200px, 400px)) minmax(
+        1em, 
+        1fr
+    );
+}
+
+.columns {
+    display: flex; 
+}
+
+.from-left {
+    grid-column: 2/3;
+    -webkit-transform: translateX(-50%); 
+    transform: translateX(-50%);
+}
+
+.from-right {
+    grid-column: 3/4; 
+    -webkit-transform: translateX(50%); 
+    transform: translateX(50%); 
+}
+
+.from-left, 
+.from-right {
+    transition: opacity 250ms ease-in, -webkit-transform 400ms ease-in; 
+    transition: opacity 250ms ease-in, transform 400ms ease-in; 
+    transition: opacity 250ms ease-in, transform 400ms ease-in, 
+        -webkit-transform 400ms ease-in; 
+    opacity: 0; 
+}
+
+.from-left.appear, 
+.from-right.appear {
+    -webskit-transform: translateX(0); 
+    transform: translateX(0); 
+    opacity: 1; 
 }
